@@ -1,13 +1,13 @@
 // src/app/cameras/page.tsx
-'use client';
+"use client";
 
-import { Sidebar } from '@/features/auth/presentation/components/Sidebar';
-import { CameraViewer } from '@/features/auth/presentation/components/CameraViewer';
-import { CameraCarousel } from '@/features/auth/presentation/components/CameraCarousel';
-import { useCameras } from '@/features/auth/presentation/hooks/useCameras';
-import { useCurrentUser, useAuthStore } from '@/features/auth';
-import { Loader2 } from 'lucide-react';
-import { useEffect } from 'react';
+import { Sidebar } from "@/features/auth/presentation/components/Sidebar";
+import { CameraViewer } from "@/features/auth/presentation/components/CameraViewer";
+import { CameraCarousel } from "@/features/auth/presentation/components/CameraCarousel";
+import { useCameras } from "@/features/auth/presentation/hooks/useCameras";
+import { useCurrentUser, useAuthStore } from "@/features/auth";
+import { Loader2 } from "lucide-react";
+import { useEffect } from "react";
 
 export default function CamerasPage() {
   const hydrate = useAuthStore((state) => state.hydrate);
@@ -25,8 +25,13 @@ export default function CamerasPage() {
     return (
       <div className="flex h-screen w-screen items-center justify-center bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
         <div className="text-center space-y-4">
-          <Loader2 className="animate-spin text-emerald-500 mx-auto" size={40} />
-          <p className="text-sm font-medium text-slate-600 dark:text-slate-400">Carregando câmeras...</p>
+          <Loader2
+            className="animate-spin text-emerald-500 mx-auto"
+            size={40}
+          />
+          <p className="text-sm font-medium text-slate-600 dark:text-slate-400">
+            Carregando câmeras...
+          </p>
         </div>
       </div>
     );
@@ -48,7 +53,9 @@ export default function CamerasPage() {
 
         {error ? (
           <div className="flex-1 flex flex-col items-center justify-center bg-slate-100 dark:bg-slate-900/30 border border-slate-200 dark:border-slate-800/80 rounded-2xl text-slate-500 dark:text-slate-400 p-6 text-center">
-            <p className="font-semibold text-slate-700 dark:text-slate-300">Falha ao obter os dados das câmeras</p>
+            <p className="font-semibold text-slate-700 dark:text-slate-300">
+              Falha ao obter os dados das câmeras
+            </p>
             <p className="text-xs text-slate-500 mt-1">
               Verifique a conexão de rede ou o serviço do backend.
             </p>

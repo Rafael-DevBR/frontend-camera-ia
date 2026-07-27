@@ -1,8 +1,8 @@
 // src/features/dashboard/presentation/components/Sidebar.tsx
-'use client';
+"use client";
 
-import { useAuthStore } from '@/features/auth';
-import { useThemeStore } from '@/features/shared/store/useThemeStore';
+import { useAuthStore } from "@/features/auth";
+import { useThemeStore } from "@/features/shared/store/useThemeStore";
 import {
   LayoutDashboard,
   Camera,
@@ -14,10 +14,10 @@ import {
   Moon,
   Menu,
   X,
-} from 'lucide-react';
-import { useRouter, usePathname } from 'next/navigation';
-import Link from 'next/link';
-import { useState } from 'react';
+} from "lucide-react";
+import { useRouter, usePathname } from "next/navigation";
+import Link from "next/link";
+import { useState } from "react";
 
 export function Sidebar() {
   const { user, logout } = useAuthStore();
@@ -28,15 +28,19 @@ export function Sidebar() {
 
   const handleLogout = () => {
     logout();
-    router.push('/login');
+    router.push("/login");
     router.refresh();
   };
 
   const menuItems = [
-    { icon: <LayoutDashboard size={20} />, label: 'Visão Geral', path: '/' },
-    { icon: <Camera size={20} />, label: 'Câmeras', path: '/cameras' },
-    { icon: <ShieldAlert size={20} />, label: 'Alertas', path: '/alertas' },
-    { icon: <Settings size={20} />, label: 'Configurações', path: '/configuracoes' },
+    { icon: <LayoutDashboard size={20} />, label: "Visão Geral", path: "/" },
+    { icon: <Camera size={20} />, label: "Câmeras", path: "/cameras" },
+    { icon: <ShieldAlert size={20} />, label: "Alertas", path: "/alertas" },
+    {
+      icon: <Settings size={20} />,
+      label: "Configurações",
+      path: "/configuracoes",
+    },
   ];
 
   const sidebarContent = (
@@ -46,9 +50,15 @@ export function Sidebar() {
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-emerald-600 to-amber-500 flex items-center justify-center font-bold text-slate-950 flex-shrink-0">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="#141313" height="18px" width="18px" viewBox="0 0 60.051 60.051">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="#141313"
+                height="18px"
+                width="18px"
+                viewBox="0 0 60.051 60.051"
+              >
                 <g>
-                  <path d="M56.963,32.026H55.14c-1.703,0-3.088,1.385-3.088,3.088v3.912h-10v-6.219c3.646-1.177,5.957-6.052,5.957-12.781   c0-7.235-2.669-12.333-6.8-12.988c-0.052-0.008-0.104-0.012-0.157-0.012h-40c-0.481,0-0.893,0.343-0.982,0.816l-0.001,0   c-0.02,0.107-0.472,2.648,1.243,4.714c1.138,1.371,2.92,2.169,5.292,2.395c-0.357,1.59-0.552,3.31-0.552,5.075   c0,7.29,3.075,13,7,13h21v12.967c0,1.672,1.36,3.033,3.033,3.033h1.935c1.308,0,2.415-0.837,2.84-2h10.193v2.912   c0,1.703,1.385,3.088,3.088,3.088h1.823c1.703,0,3.088-1.385,3.088-3.088V35.114C60.051,33.411,58.666,32.026,56.963,32.026z"/>
+                  <path d="M56.963,32.026H55.14c-1.703,0-3.088,1.385-3.088,3.088v3.912h-10v-6.219c3.646-1.177,5.957-6.052,5.957-12.781   c0-7.235-2.669-12.333-6.8-12.988c-0.052-0.008-0.104-0.012-0.157-0.012h-40c-0.481,0-0.893,0.343-0.982,0.816l-0.001,0   c-0.02,0.107-0.472,2.648,1.243,4.714c1.138,1.371,2.92,2.169,5.292,2.395c-0.357,1.59-0.552,3.31-0.552,5.075   c0,7.29,3.075,13,7,13h21v12.967c0,1.672,1.36,3.033,3.033,3.033h1.935c1.308,0,2.415-0.837,2.84-2h10.193v2.912   c0,1.703,1.385,3.088,3.088,3.088h1.823c1.703,0,3.088-1.385,3.088-3.088V35.114C60.051,33.411,58.666,32.026,56.963,32.026z" />
                 </g>
               </svg>
             </div>
@@ -59,10 +69,18 @@ export function Sidebar() {
 
           <button
             onClick={toggleTheme}
-            title={theme === 'dark' ? 'Mudar para Modo Claro' : 'Mudar para Modo Escuro'}
+            title={
+              theme === "dark"
+                ? "Mudar para Modo Claro"
+                : "Mudar para Modo Escuro"
+            }
             className="p-2 rounded-xl bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-emerald-500 dark:hover:text-emerald-400 transition-all cursor-pointer"
           >
-            {theme === 'dark' ? <Sun size={18} className="text-amber-400" /> : <Moon size={18} className="text-slate-700" />}
+            {theme === "dark" ? (
+              <Sun size={18} className="text-amber-400" />
+            ) : (
+              <Moon size={18} className="text-slate-700" />
+            )}
           </button>
         </div>
 
@@ -77,8 +95,8 @@ export function Sidebar() {
                 onClick={() => setMobileOpen(false)}
                 className={`w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-sm font-medium transition-all ${
                   isActive
-                    ? 'bg-emerald-100 dark:bg-gradient-to-r dark:from-emerald-950 dark:to-slate-900 border-l-4 border-emerald-500 text-emerald-700 dark:text-emerald-400 font-semibold'
-                    : 'text-slate-600 dark:text-slate-400 hover:bg-slate-200/60 dark:hover:bg-slate-800/50 hover:text-slate-900 dark:hover:text-slate-200'
+                    ? "bg-emerald-100 dark:bg-gradient-to-r dark:from-emerald-950 dark:to-slate-900 border-l-4 border-emerald-500 text-emerald-700 dark:text-emerald-400 font-semibold"
+                    : "text-slate-600 dark:text-slate-400 hover:bg-slate-200/60 dark:hover:bg-slate-800/50 hover:text-slate-900 dark:hover:text-slate-200"
                 }`}
               >
                 {item.icon}
@@ -97,8 +115,12 @@ export function Sidebar() {
               <UserIcon size={20} />
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-semibold text-slate-800 dark:text-slate-200 truncate">{user.name}</p>
-              <p className="text-xs text-slate-500 dark:text-slate-500 truncate">{user.email}</p>
+              <p className="text-sm font-semibold text-slate-800 dark:text-slate-200 truncate">
+                {user.name}
+              </p>
+              <p className="text-xs text-slate-500 dark:text-slate-500 truncate">
+                {user.email}
+              </p>
             </div>
           </div>
         )}
@@ -132,7 +154,11 @@ export function Sidebar() {
             onClick={toggleTheme}
             className="p-2 rounded-lg bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300"
           >
-            {theme === 'dark' ? <Sun size={18} className="text-amber-400" /> : <Moon size={18} />}
+            {theme === "dark" ? (
+              <Sun size={18} className="text-amber-400" />
+            ) : (
+              <Moon size={18} />
+            )}
           </button>
 
           <button
@@ -153,16 +179,16 @@ export function Sidebar() {
       )}
 
       {/* Sidebar Flutuante no Mobile */}
-      <div className={`md:hidden fixed top-0 left-0 bottom-0 z-50 transition-transform duration-300 ${
-        mobileOpen ? 'translate-x-0' : '-translate-x-full'
-      }`}>
+      <div
+        className={`md:hidden fixed top-0 left-0 bottom-0 z-50 transition-transform duration-300 ${
+          mobileOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
+      >
         {sidebarContent}
       </div>
 
       {/* Sidebar Fixa no Desktop (>= md) */}
-      <div className="hidden md:flex h-full">
-        {sidebarContent}
-      </div>
+      <div className="hidden md:flex h-full">{sidebarContent}</div>
     </>
   );
 }

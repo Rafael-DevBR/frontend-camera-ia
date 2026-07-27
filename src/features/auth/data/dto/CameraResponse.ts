@@ -3,7 +3,7 @@ export type CameraDto = {
   id: string;
   name: string;
   location_name: string;
-  status: 'ONLINE' | 'OFFLINE';
+  status: "ONLINE" | "OFFLINE";
   thumbnail_url: string;
   stream_url: string;
 };

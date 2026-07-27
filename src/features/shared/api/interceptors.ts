@@ -1,16 +1,13 @@
 import { getAccessToken } from "./auth";
 
-export function createHeaders(
-    headers?: HeadersInit
-): HeadersInit {
+export function createHeaders(headers?: HeadersInit): HeadersInit {
+  const token = getAccessToken();
 
-    const token = getAccessToken();
-
-    return {
-        "Content-Type": "application/json",
-        ...(token && {
-            Authorization: `Bearer ${token}`
-        }),
-        ...headers
-    };
+  return {
+    "Content-Type": "application/json",
+    ...(token && {
+      Authorization: `Bearer ${token}`,
+    }),
+    ...headers,
+  };
 }

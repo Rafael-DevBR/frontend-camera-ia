@@ -1,5 +1,5 @@
 // src/features/dashboard/presentation/store/useCameraStore.ts
-import { create } from 'zustand';
+import { create } from "zustand";
 
 interface CameraStoreState {
   selectedCameraId: string | null;

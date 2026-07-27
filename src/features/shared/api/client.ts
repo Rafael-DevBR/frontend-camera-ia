@@ -1,16 +1,10 @@
-const BASE_URL =
-  process.env.NEXT_PUBLIC_API_URL ??
-  "http://localhost:3000";
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:3000";
 
 export async function apiClient<T>(
   endpoint: string,
-  options: RequestInit = {}
+  options: RequestInit = {},
 ): Promise<T> {
-
-  const response = await fetch(
-    `${BASE_URL}${endpoint}`,
-    options
-  );
+  const response = await fetch(`${BASE_URL}${endpoint}`, options);
 
   if (!response.ok) {
     throw await createApiError(response);
@@ -20,5 +14,5 @@ export async function apiClient<T>(
 }
 
 function createApiError(response: Response) {
-    throw new Error("Function not implemented.");
+  throw new Error("Function not implemented.");
 }

@@ -5,8 +5,9 @@
 
 /* ─── Fontes Helvetica Now ───────────────────────────────────────────────── */
 :root {
-  --font-heading: 'HelveticaNowDisplay-Medium', 'Helvetica Neue', Arial, sans-serif;
-  --font-body: 'HelveticaNowDisplayW01-Rg', 'Helvetica Neue', Arial, sans-serif;
+  --font-heading:
+    "HelveticaNowDisplay-Medium", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "HelveticaNowDisplayW01-Rg", "Helvetica Neue", Arial, sans-serif;
 }
 
 @theme inline {
@@ -30,6 +31,14 @@ body {
 }
 
 /* Scrollbar customizada */
-.custom-scrollbar::-webkit-scrollbar { width: 4px; height: 4px; }
-.custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
-.custom-scrollbar::-webkit-scrollbar-thumb { background-color: #334155; border-radius: 99px; }
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #334155;
+  border-radius: 99px;
+}

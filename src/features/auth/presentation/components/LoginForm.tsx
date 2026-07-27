@@ -1,13 +1,14 @@
 // src/features/auth/presentation/components/LoginForm.tsx
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import { useLogin } from '../hooks/useLogin';
-import { Mail, Lock, Loader2 } from 'lucide-react';
+import React, { useState } from "react";
+import { useLogin } from "../hooks/useLogin";
+import { Mail, Lock, Loader2 } from "lucide-react";
+import Link from "next/link";
 
 export function LoginForm() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const { mutate: login, isPending, error } = useLogin();
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -20,7 +21,7 @@ export function LoginForm() {
     <form onSubmit={handleSubmit} className="space-y-5 md:space-y-6">
       {error && (
         <div className="p-3 bg-red-100 dark:bg-red-950/50 border border-red-300 dark:border-red-500/30 text-red-800 dark:text-red-200 text-xs md:text-sm rounded-lg">
-          {error.message || 'Falha ao autenticar. Verifique suas credenciais.'}
+          {error.message || "Falha ao autenticar. Verifique suas credenciais."}
         </div>
       )}
 
@@ -73,9 +74,22 @@ export function LoginForm() {
             Entrando...
           </>
         ) : (
-          'Entrar no Portal'
+          "Entrar no Portal"
         )}
       </button>
+
+      <div className="flex justify-between text-sm">
+        <Link
+          href="/esqueci-senha"
+          className="text-emerald-600 hover:text-emerald-500"
+        >
+          Esqueci minha senha
+        </Link>
+
+        <Link href="/cadastro" className="text-amber-600 hover:text-amber-500">
+          Criar conta
+        </Link>
+      </div>
     </form>
   );
 }

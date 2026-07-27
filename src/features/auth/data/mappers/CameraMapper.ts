@@ -1,6 +1,6 @@
 // src/features/dashboard/data/mappers/CameraMapper.ts
-import { Camera } from '../../domain/entities/Camera';
-import { CameraDto } from '../dto/CameraResponse';
+import { Camera } from "../../domain/entities/Camera";
+import { CameraDto } from "../dto/CameraResponse";
 
 export class CameraMapper {
   static toDomain(dto: CameraDto): Camera {

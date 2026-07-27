@@ -1,8 +1,8 @@
 // src/features/dashboard/presentation/components/CameraCarousel.tsx
-'use client';
+"use client";
 
-import { useCameraStore } from '../store/useCameraStore';
-import { Camera as CameraEntity } from '../../domain/entities/Camera';
+import { useCameraStore } from "../store/useCameraStore";
+import { Camera as CameraEntity } from "../../domain/entities/Camera";
 
 interface CameraCarouselProps {
   cameras: CameraEntity[];
@@ -21,16 +21,16 @@ export function CameraCarousel({ cameras }: CameraCarouselProps) {
       <div className="flex flex-row lg:flex-col overflow-x-auto lg:overflow-y-auto gap-3 space-y-0 lg:space-y-3 custom-scrollbar pr-1 pb-2 lg:pb-0">
         {cameras.map((camera) => {
           const isSelected = selectedCameraId === camera.id;
-          const isOnline = camera.status === 'ONLINE';
+          const isOnline = camera.status === "ONLINE";
 
           return (
             <button
               key={camera.id}
-              onClick={() => isSelected ? null : selectCamera(camera.id)}
+              onClick={() => (isSelected ? null : selectCamera(camera.id))}
               className={`min-w-[180px] lg:min-w-0 lg:w-full text-left rounded-xl overflow-hidden bg-white dark:bg-slate-950 border transition-all cursor-pointer flex-shrink-0 ${
                 isSelected
-                  ? 'border-emerald-500 ring-1 ring-emerald-500 shadow-md shadow-emerald-500/10'
-                  : 'border-slate-200 dark:border-slate-800/60 hover:border-slate-300 dark:hover:border-slate-700'
+                  ? "border-emerald-500 ring-1 ring-emerald-500 shadow-md shadow-emerald-500/10"
+                  : "border-slate-200 dark:border-slate-800/60 hover:border-slate-300 dark:hover:border-slate-700"
               }`}
             >
               {/* Miniatura do Feed */}
@@ -57,8 +57,12 @@ export function CameraCarousel({ cameras }: CameraCarouselProps) {
 
               {/* Informações */}
               <div className="p-2.5 lg:p-3">
-                <p className="text-xs font-semibold text-slate-800 dark:text-slate-200 truncate">{camera.name}</p>
-                <p className="text-[10px] text-slate-500 dark:text-slate-500 truncate mt-0.5">{camera.location}</p>
+                <p className="text-xs font-semibold text-slate-800 dark:text-slate-200 truncate">
+                  {camera.name}
+                </p>
+                <p className="text-[10px] text-slate-500 dark:text-slate-500 truncate mt-0.5">
+                  {camera.location}
+                </p>
               </div>
             </button>
           );

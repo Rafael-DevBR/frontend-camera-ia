@@ -1,5 +1,5 @@
 // src/features/dashboard/domain/use-cases/GetCamerasUseCase.ts
-import { ICameraRepository } from '../repositories/ICameraRepository';
+import { ICameraRepository } from "../repositories/ICameraRepository";
 
 export class GetCamerasUseCase {
   constructor(private readonly cameraRepository: ICameraRepository) {}
