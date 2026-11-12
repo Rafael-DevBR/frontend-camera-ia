@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+.esteira/runs/
+.esteira/tmp/
+.esteira/hooks/
+.esteira/heals/
+.esteira/backups/

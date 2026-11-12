@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "tool": "@esteira/cli",
+  "adaptersVersion": 1,
+  "generatedAt": "2026-11-12T21:39:11.329Z",
+  "profile": {
+    "schemaVersion": 1,
+    "root": "D:\\Reconhecimento_facial_camera_ip\\frontend-camera-ia",
+    "generatedAt": "2026-11-12T21:39:11.328Z",
+    "files": {
+      "total": 94,
+      "signatures": {
+        ".ts": 56,
+        ".tsx": 20,
+        ".svg": 5,
+        ".json": 3,
+        ".mjs": 2,
+        ".dockerignore": 1,
+        ".local": 1,
+        ".yml": 1,
+        ".gitignore": 1,
+        "__no_ext__": 1,
+        "Dockerfile": 1,
+        "package-lock.json": 1,
+        "package.json": 1,
+        ".md": 1,
+        ".css": 1,
+        "tsconfig.json": 1,
+        ".tsbuildinfo": 1
+      }
+    },
+    "languages": [
+      {
+        "id": "node",
+        "confidence": 0.95,
+        "runtime": {
+          "node": "20"
+        },
+        "packageManager": "npm",
+        "frameworks": [
+          "next",
+          "react",
+          "tailwindcss"
+        ],
+        "evidence": [
+          "package.json",
+          "package-manager:npm"
+        ],
+        "commands": {
+          "test": null,
+          "lint": "npm run lint",
+          "typecheck": "npx tsc --noEmit",
+          "build": "npm run build"
+        },
+        "installCommand": "npm ci --ignore-scripts"
+      }
+    ],
+    "monorepo": {
+      "isMonorepo": false,
+      "tool": null,
+      "layout": []
+    },
+    "infra": {
+      "containers": true,
+      "kubernetes": false,
+      "helm": false,
+      "terraform": false,
+      "ansible": false,
+      "argocd": false,
+      "ciProviders": [
+        "github-actions"
+      ],
+      "hasPipelines": true
+    },
+    "commands": {
+      "lint": "npm run lint",
+      "typecheck": "npx tsc --noEmit",
+      "test": null,
+      "build": "npm run build"
+    },
+    "gaps": [
+      {
+        "id": "no-test-command",
+        "message": "Nenhum comando de teste detectado — o playground do gate precisa de um (profile.commands.test)."
+      }
+    ],
+    "warnings": [],
+    "subprojects": []
+  },
+  "gate": {
+    "mode": "block",
+    "blockAt": "medium",
+    "maxFileBytes": 5242880,
+    "playground": {
+      "enabled": true,
+      "baseline": true,
+      "timeoutMs": 120000
+    },
+    "push": {
+      "requireAttestation": true
+    },
+    "gates": []
+  },
+  "audit": {
+    "sources": [
+      "local",
+      "github"
+    ],
+    "schedule": "daily",
+    "failOn": "high"
+  },
+  "llm": {
+    "enabled": true,
+    "endpoint": "http://192.168.0.140:11434",
+    "model": "hermes3:8b",
+    "timeoutMs": 60000
+  }
+}
