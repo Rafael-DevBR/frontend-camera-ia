@@ -1,10 +1,12 @@
-// src/features/auth/domain/use-cases/GetCurrentUserUseCase.ts
-import { IAuthRepository } from "../repositories/IAuthRepository";
+// domain/use-cases/GetCurrentUserUseCase.ts
+import { ICurrentUserRepository } from "../repositories/ICurrentUserRepository";
 
 export class GetCurrentUserUseCase {
-  constructor(private readonly authRepository: IAuthRepository) {}
+  constructor(
+    private readonly currentUserRepository: ICurrentUserRepository,
+  ) {}
 
   async execute() {
-    return this.authRepository.getCurrentUser();
+    return this.currentUserRepository.getCurrentUser();
   }
 }

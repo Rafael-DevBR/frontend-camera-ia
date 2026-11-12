@@ -1,13 +1,13 @@
 // src/features/auth/domain/use-cases/ForgotPasswordUseCase.ts
-import { IAuthRepository } from "../repositories/IAuthRepository";
+import { IForgotPasswordRepository } from "../repositories/IForgotPasswordRepository";
 
 export class ForgotPasswordUseCase {
-  constructor(private readonly authRepository: IAuthRepository) {}
+  constructor(private readonly iForgotPasswordRepository: IForgotPasswordRepository) {}
 
-  async execute(email: string) {
+  async execute(email: string): Promise<void> {
     if (!email) {
       throw new Error("E-mail é obrigatório.");
     }
-    return this.authRepository.forgotPassword(email);
+    await this.iForgotPasswordRepository.forgotPassword({ email });
   }
 }

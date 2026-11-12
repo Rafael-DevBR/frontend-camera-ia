@@ -1,10 +1,10 @@
 // src/features/auth/domain/use-cases/RefreshTokenUseCase.ts
-import { IAuthRepository } from "../repositories/IAuthRepository";
+import {IRefreshTokenRepository} from "../repositories/IRefreshTokenRepository";
 
 export class RefreshTokenUseCase {
-  constructor(private readonly authRepository: IAuthRepository) {}
+  constructor(private readonly refreshTokenRepository: IRefreshTokenRepository) {}
 
   async execute() {
-    return this.authRepository.refreshToken();
+    return this.refreshTokenRepository.refreshToken();
   }
 }

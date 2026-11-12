@@ -1,12 +1,17 @@
 // src/features/auth/data/dto/LoginResponse.ts
 export type UserDto = {
-  id: string;
-  email: string;
-  name: string;
-  createdAt?: string; // Campos adicionais que o backend envia mas o domínio não precisa
+  nome_completo: string;
+  email_acesso: string;
+  papel: "ADMIN" | "USUARIO" | "SUPER_ADMIN";
+  setor_acesso:
+    | "RECEPCAO"
+    | "TI"
+    | "RH"
+    | "ADMINISTRATIVO"
+    | "PRODUCAO";
 };
 
 export type LoginResponseDto = {
-  access_token: string;
+  accessToken: string;
   user: UserDto;
 };

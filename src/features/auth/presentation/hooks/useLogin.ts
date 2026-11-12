@@ -1,13 +1,12 @@
 // src/features/auth/presentation/hooks/useLogin.ts
 import { useMutation } from "@tanstack/react-query";
 import { useRouter, useSearchParams } from "next/navigation";
-import { HttpAuthRepository } from "../../data/repositories/HttpAuthRepository";
+import { HttpLoginRepository } from "../../data/repositories/HttpLoginRepository";
 import { LoginUseCase } from "../../domain/use-cases/LoginUseCase";
 import { useAuthStore } from "../store/useAuthStore";
 
-// Injeção de dependências: Repositório -> Caso de Uso
-const authRepository = new HttpAuthRepository();
-const loginUseCase = new LoginUseCase(authRepository);
+const loginRepository = new HttpLoginRepository();
+const loginUseCase = new LoginUseCase(loginRepository);
 
 export function useLogin() {
   const router = useRouter();

@@ -1,10 +1,10 @@
 // src/features/auth/domain/use-cases/LogoutUseCase.ts
-import { IAuthRepository } from "../repositories/IAuthRepository";
+import { ILogoutRepository } from "../repositories/ILogoutRepository";
 
 export class LogoutUseCase {
-  constructor(private readonly authRepository: IAuthRepository) {}
+  constructor(private readonly logoutRepository: ILogoutRepository) {}
 
   async execute() {
-    return this.authRepository.logout();
+    return this.logoutRepository.logout();
   }
 }

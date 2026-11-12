@@ -1,4 +1,4 @@
-const BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:3000";
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://192.168.0.231:5899";
 
 export async function apiClient<T>(
   endpoint: string,
@@ -13,6 +13,17 @@ export async function apiClient<T>(
   return response.json();
 }
 
-function createApiError(response: Response) {
-  throw new Error("Function not implemented.");
+async function createApiError(response: Response): Promise<Error> {
+  let message = `Erro ${response.status}`;
+  try {
+    const body = await response.json();
+    if (body?.message) {
+      message = Array.isArray(body.message)
+        ? body.message.join(", ")
+        : body.message;
+    }
+  } catch {
+    // Corpo não é JSON; usa o status/texto padrão
+  }
+  return new Error(message);
 }

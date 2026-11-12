@@ -1,15 +1,14 @@
 // src/features/auth/presentation/hooks/useCurrentUser.ts
-
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
-import { HttpAuthRepository } from "../../data/repositories/HttpAuthRepository";
+import { HttpCurrentUserRepository } from "../../data/repositories/HttpCurrentUserRepository";
 import { GetCurrentUserUseCase } from "../../domain/use-cases/GetCurrentUserUseCase";
 import { useAuthStore } from "../store/useAuthStore";
 
-const authRepository = new HttpAuthRepository();
-const getCurrentUserUseCase = new GetCurrentUserUseCase(authRepository);
+const currentUserRepository = new HttpCurrentUserRepository();
+const getCurrentUserUseCase = new GetCurrentUserUseCase(currentUserRepository);
 
 export function useCurrentUser() {
   const { isAuthenticated, logout } = useAuthStore();

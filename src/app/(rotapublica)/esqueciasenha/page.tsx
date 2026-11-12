@@ -1,12 +1,5 @@
-import { ForgotPasswordForm } from "@/features/auth/presentation/components/ForgotPasswordForm";
+import { ForgotPasswordPage } from "@/features/auth/presentation/components/ForgotPasswordPage";
 
-export default function ForgotPasswordPage() {
-  return (
-    <main className="min-h-screen flex items-center justify-center">
-      <div className="w-full max-w-md">
-        <h1 className="text-2xl font-bold mb-6">Recuperar senha</h1>
-        <ForgotPasswordForm />
-      </div>
-    </main>
-  );
+export default function Page() {
+  return <ForgotPasswordPage />;
 }

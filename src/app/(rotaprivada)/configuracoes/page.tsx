@@ -114,7 +114,7 @@ export default function ConfiguracoesPage() {
             <p className="text-xs text-slate-600 dark:text-slate-400">
               URL da API:{" "}
               <code className="bg-slate-100 dark:bg-slate-950 px-2 py-1 rounded text-emerald-600 dark:text-emerald-400 border border-slate-200 dark:border-slate-800">
-                http://localhost:3000
+                http://192.168.0.231:5899
               </code>
             </p>
           </div>

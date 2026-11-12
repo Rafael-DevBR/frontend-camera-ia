@@ -1,15 +1,15 @@
 // src/features/auth/domain/use-cases/RegisterUserUseCase.ts
 import { User } from "../entities/User";
 import { RegisterUser } from "../entities/RegisterUser";
-import { IAuthRepository } from "../repositories/IAuthRepository";
+import { IRegisterRepository } from "../repositories/IRegisterRepository";
 
 export class RegisterUseCase {
   constructor(
-    private readonly authRepository: IAuthRepository,
+    private readonly registerRepository: IRegisterRepository,
   ) {}
 
   async execute(data: RegisterUser): Promise<User> {
-    const { name, email, password, confirmPassword } = data;
+    const { name, email, password, confirmPassword, papel, setor } = data;
 
     if (!name.trim()) {
       throw new Error("Nome é obrigatório.");
@@ -31,11 +31,13 @@ export class RegisterUseCase {
       throw new Error("As senhas não conferem.");
     }
 
-    return this.authRepository.registerUser({
+    return this.registerRepository.registerUser({
       name,
       email,
       password,
       confirmPassword,
+      papel,
+      setor,
     });
   }
 }

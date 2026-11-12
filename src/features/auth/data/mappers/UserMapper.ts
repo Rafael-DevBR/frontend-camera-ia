@@ -6,9 +6,11 @@ import { UserDto } from "../dto/LoginResponse";
 export class UserMapper {
   static toDomain(dto: UserDto): User {
     return {
-      id: dto.id,
-      email: dto.email,
-      name: dto.name,
+      id: dto.email_acesso,
+      email: dto.email_acesso,
+      name: dto.nome_completo,
+      papel: dto.papel,
+      setor_acesso: dto.setor_acesso,
     };
   }
 }

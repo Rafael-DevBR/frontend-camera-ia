@@ -1,8 +1,8 @@
 // src/features/auth/domain/use-cases/LoginUseCase.ts
-import { IAuthRepository } from "../repositories/IAuthRepository";
+import { ILoginRepository } from "../repositories/ILoginRepository";
 
 export class LoginUseCase {
-  constructor(private readonly authRepository: IAuthRepository) {}
+  constructor(private readonly authRepository: ILoginRepository) {}
 
   async execute(email: string, password: string) {
     if (!email || !password) {

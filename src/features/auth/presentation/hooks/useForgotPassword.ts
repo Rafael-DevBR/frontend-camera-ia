@@ -1,14 +1,12 @@
 import { useMutation } from "@tanstack/react-query";
 import { ForgotPasswordUseCase } from "../../domain/use-cases/ForgotPasswordUseCase";
-import { HttpAuthRepository } from "../../data/repositories/HttpAuthRepository";
+import { HttpForgotPasswordRepository } from "../../data/repositories/HttpForgotPasswordRepository";
 
-const repository = new HttpAuthRepository();
-const forgotPasswordUseCase = new ForgotPasswordUseCase(repository);
+const forgotPasswordRepository = new HttpForgotPasswordRepository();
+const forgotPasswordUseCase = new ForgotPasswordUseCase(forgotPasswordRepository);
 
-export function useForgotPassword(){
+export function useForgotPassword() {
   return useMutation({
-    mutationFn:(email:string)=>
-      forgotPasswordUseCase.execute(email)
+    mutationFn: (email: string) => forgotPasswordUseCase.execute(email),
   });
-
 }
